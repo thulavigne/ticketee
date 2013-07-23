@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+
+  attr_accessible :email, :password, :admin, :as => :admin
+
+  def to_s
+    "#{email} (#{admin? ? "Admin" : "User"})"
+  end
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
