@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :permissions
+
   attr_accessible :email, :password, :admin, :as => :admin
 
   def to_s
@@ -17,4 +19,5 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
 end
