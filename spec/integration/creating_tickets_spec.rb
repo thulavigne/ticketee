@@ -41,18 +41,19 @@ end
     page.should have_content("Description is too short")
   end
 
-  scenario "Creating a ticket with an attachment" do
+  scenario "Creating a ticket with an attachment", :js => true do
     fill_in "Title", :with => "Add documentation for blink tag"
-    fill_in "Description", :with => "The blink tag has a speed attribute"
-    attach_file "File #1", File.expand_path("spec/fixtures/speed.txt")
+    fill_in "Description", :with => "Blink tag's speed attribute"
+    attach_file "File #1", "spec/fixtures/speed.txt"
+    click_link "Add another file"
+    # save_and_open_page
+    # page.should have_content("File #2")
     attach_file "File #2", "spec/fixtures/spin.txt"
-    attach_file "File #3", "spec/fixtures/gradient.txt"
     click_button "Create Ticket"
     page.should have_content("Ticket has been created.")
-    within("#ticket .assets") do
+      within("#ticket .assets") do
       page.should have_content("speed.txt")
       page.should have_content("spin.txt")
-      page.should have_content("gradient.txt")
     end
   end
 
