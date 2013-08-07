@@ -6,6 +6,7 @@ class CreateAssets < ActiveRecord::Migration
       t.string :asset_content_type
       t.datetime :asset_updated_at
       t.integer :ticket_id
+
       t.timestamps
     end
 
