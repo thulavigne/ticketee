@@ -1,6 +1,5 @@
 class Project < ActiveRecord::Base
   attr_accessible :description, :name
-
   validates :name, :presence => true, :uniqueness => true
   has_many :permissions, :as => :thing
   def self.viewable_by(user)

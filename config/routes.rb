@@ -8,6 +8,9 @@ Ticketee::Application.routes.draw do
 
   resources :files
 
+  scope ":locale" do
+  end
+
   root :to => "projects#index"
     resources :projects do
     resources :tickets

@@ -2,7 +2,8 @@
   <h2><%= @ticket.title %></h2>
   <span id='author'>
     <small>Created by <%= @ticket.user.email %></small>
-  </span>
+    <small><span id="timestamp">at <%= @ticket.created_at.to_s(:short) %></span>
+  </span></small>
   <% if @ticket.assets.exists? %>
     <h3>Attached Files</h3>
       <div class="assets">

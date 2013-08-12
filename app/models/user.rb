@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   has_many :permissions
 
   attr_accessible :email, :password, :admin, :as => :admin
